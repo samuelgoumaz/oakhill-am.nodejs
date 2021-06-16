@@ -1,0 +1,150 @@
+/* variables ------------------------------- */
+$main-color: black;
+$handler-width: 80px;
+$handler-height: 80px;
+$handler-line-height: 95px;
+$hover-background: rgba(0,0,0,0.05);
+$hover-color: white;
+
+
+/* container ------------------------------- */
+.container {
+  display: block;
+  position: relative;
+  z-index: 9;
+}
+
+/* handler ------------------------------- */
+.handler {
+  width: $handler-width;
+  height: $handler-height;
+  line-height: $handler-line-height;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: background 0.25s, color 0.25s;
+  cursor: pointer;
+  color: white;
+
+  &:hover {
+    background: $hover-background;
+    color: $hover-color;
+  }
+}
+
+/* content ------------------------------- */
+.content {
+  width: 30vw;
+  min-width: 320px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: opacity 0.5s, margin-left 0.5s;
+  background: #222;
+  border-bottom: 10px solid #333;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+
+  ul {
+    margin-left: -100vw;
+    position: relative;
+  }
+
+  &[active="false"] {
+    opacity: 0;
+    margin-left: -100vw;
+
+    ul {
+      margin-left: -100vw;
+    }
+  }
+
+  &[active="true"] {
+    opacity: 1;
+    margin-left: 0;
+
+    ul {
+      margin-left: 0;
+    }
+  }
+}
+
+/* inner ------------------------------- */
+.inner {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  padding: 0 0 0 0;
+  display: table-cell;
+  text-align: left;
+
+  ul {
+    border-top: 1px solid rgba(0,0,0,0.15);
+
+    li {
+      a {
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+        display: block;
+        font-size: 1em;
+        line-height: 60px;
+        padding-left: 0;
+        transition: padding-left 0.5s, font-size 0.5s;
+        color: #f2f2f2;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+
+        &:hover {
+          padding-left: 0px;
+          color: #c2910e;
+        }
+      }
+    }
+  }
+  .submenu {
+    margin-top: 20px;
+
+    li {
+      a {
+        font-size: 1em;
+        line-height: 30px;
+
+        &:after {
+          width: 0;
+          top: -15px;
+        }
+        &:hover {
+          font-size: 1.25em;
+
+          &:after {
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* header ------------------------------- */
+.header {
+  width: 100%;
+  height: $handler-line-height;
+  display: block;
+  position: relative;
+  line-height: $handler-line-height;
+  padding: 0 0 0 $handler-line-height;
+  text-align: left;
+}
+
+/* title ------------------------------- */
+.title {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

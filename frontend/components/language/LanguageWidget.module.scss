@@ -1,0 +1,97 @@
+/* variables ------------------------------- */
+$main-color: black;
+$handler-width: 40px;
+$handler-height: 40px;
+$handler-line-height: 55px;
+$hover-background: #d8d2ca;
+$hover-color: white;
+
+
+/* container ------------------------------- */
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+/* handler ------------------------------- */
+.handler {
+  width: $handler-width;
+  height: $handler-height;
+  line-height: $handler-line-height;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  /* transition */
+  transition: background 0.25s, color 0.25s;
+
+  &[active="false"] {
+    background: white;
+    color: black;
+  }
+
+  &:hover, &[active="true"] {
+    background: $hover-background;
+    color: $hover-color;
+  }
+}
+
+
+/* content ------------------------------- */
+.content {
+  width: 40px;
+  position: absolute;
+  right: 0;
+  top: $handler-height;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1;
+
+  /* transition */
+  transition: transform 0.25s, top 0.25s;
+
+  &[active="false"] {
+    transform: translateY(calc(-100% - 80px));
+    opacity: 0;
+  }
+
+  &[active="true"] {
+    transform: 0;
+    opacity: 1;
+  }
+}
+
+/* inner ------------------------------- */
+.inner {
+  background: pink;
+
+  ul {
+    li {
+      a {
+        width: 100%;
+        text-align: center;
+        padding: 0 10px;
+        display: block;
+        line-height: 40px;
+        font-family: inherit;
+        background: $hover-background;
+        text-transform: uppercase;
+        font-size: 0.875em;
+        letter-spacing: 0.1em;
+
+        &:hover {
+          background: black;
+          background: $hover-color;
+        }
+
+        &[active="false"] {
+          background: $hover-background;
+        }
+
+        &[active="true"] {
+          color: black;
+          background: $hover-color;
+        }
+      }
+    }
+  }
+}

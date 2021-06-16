@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "name": "homepage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "title_seo": {
+      "type": "string"
+    },
+    "description_seo": {
+      "type": "richtext"
+    },
+    "section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.section"
+    }
+  }
+}

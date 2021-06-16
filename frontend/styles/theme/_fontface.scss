@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'didot-light';
+  src: url('../../fonts/didot_htf_l16_light_italic-webfont.woff2') format('woff2'),
+       url('../../fonts/didot_htf_l16_light_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'didot-medium';
+  src: url('../../fonts/didot_htf_m11_medium_italic-webfont.woff2') format('woff2'),
+       url('../../fonts/didot_htf_m11_medium_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Antartica-regular';
+  src: url('../../fonts/AntarcticaBeta-RegContrast.woff2') format('woff2'),
+      url('../../fonts/AntarcticaBeta-RegContrast.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

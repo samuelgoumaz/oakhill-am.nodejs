@@ -1,0 +1,420 @@
+// Default
+// ==========================================================================
+html, body, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+}
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+canvas {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  border: 0;
+}
+sup {
+  font-size: 0.75em;
+  line-height: inherit;
+}
+a, .link {
+  cursor: pointer !important;
+}
+// HTML and Body
+// ==========================================================================
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+.clear {
+  display: block;
+  clear: both;
+}
+.background {
+  background-position: center;
+  background-size: cover;
+}
+
+// Btn
+// ==========================================================================
+.btn {
+  padding: 20px;
+  background: white;
+  margin-top: 20px;
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  padding: 0 20px;
+  text-transform: uppercase;
+  color: black;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+}
+button {
+  outline: none;
+  &:focus, &::selection {
+     outline: none;
+  }
+}
+// Text Format
+// ==========================================================================
+.text-format {
+  a {
+  }
+  p {
+    margin-bottom: 15px;
+  }
+  h2 {
+    font-size: 2.5vw;
+    padding: 20px 0;
+  }
+  ul {
+    margin-bottom: 10px;
+    li {
+      list-style: initial;
+      margin-left: 20px;
+    }
+  }
+}
+
+// Section
+// ==========================================================================
+.section {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+.row {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  margin-bottom: 0;
+
+  .col {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+}
+.col {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+
+  .row {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+}
+
+// Nav Handler
+// ==========================================================================
+.nav-handler {
+  position: relative;
+  width: auto;
+  float: right;
+  left: 0;
+  margin: 0px;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  @include transition(all 0.5s);
+
+  span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -15px;
+    @include transition(all 0.5s);
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 30px;
+      background: white;
+      @include transition(all 0.5s);
+    }
+    &::before {
+      transform-origin: top left;
+      top: -8px;
+      left: 0;
+    }
+    &::after {
+      transform-origin: bottom left;
+      bottom: -8px;
+      left: 0;
+    }
+  }
+  &:hover {
+    span {
+      &::before {
+          top: -9px;
+      }
+      &::after {
+          bottom: -9px;
+      }
+    }
+  }
+  &.close {
+    span {
+      background: transparent !important;
+
+      &::before {
+        background: black !important;
+        transform: rotate(25deg);
+        top: -4px;
+      }
+      &::after {
+        background: black !important;
+        transform: rotate(-25deg);
+        top: auto;
+      }
+    }
+    &:hover {
+      &::before {
+          top: -14px;
+      }
+      &::after {
+          bottom: -14px;
+      }
+    }
+  }
+}
+
+// Header
+// ==========================================================================
+header#header {
+  &.headroom--top {
+
+  }
+  &.headroom--pinned {
+
+  }
+  &.headroom--unpinned {
+
+  }
+}
+
+
+// background
+// ==========================================================================
+.background {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+
+  .cover {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    background-size: cover;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// Select
+// ==========================================================================
+select {
+  width: calc(100% - 20px);
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+  border: none;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(../../public/assets/down.png) 99% / 3% no-repeat #EEE;
+  border-radius: 5px;
+  font-family: $font-main-regular;
+}
+
+// Checkbox
+// ==========================================================================
+
+/* Customize the label (the container) */
+.item-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  line-height: 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+
+  /* On mouse-over, add a grey background color */
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .checkmark:after {
+    left: 10px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+// Radio
+// ==========================================================================
+
+/* Customize the label (the container) */
+.item-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+}
+
+// Responsive
+// ==========================================================================
+@media #{$small-and-down} {
+  // styles for small screens and down
+}
+@media #{$medium-and-up} {
+  // styles for medium screens and larger
+}
+@media #{$medium-and-down} {
+  // styles for medium screens and down
+}
+@media #{$large-and-up} {
+  // styles for large screens and up
+}
+@media #{$extra-large-and-up} {
+  // styles for extra large screens and up
+}

@@ -1,0 +1,52 @@
+// responsive
+body {
+  background: black;
+  font-family: $font-main-regular;
+  color: $text-grey;
+}
+
+main#main {
+  position: relative;
+  z-index: 1;
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  position: relative;
+  border: 1px solid $black-secondary;
+  text-align: center;
+  line-height: 60px;
+  @include transition(1s all ease);
+  cursor: pointer;
+
+  &.round {
+    background: transparent;
+    border-radius: 50%;
+    color: white;
+
+    &:hover {
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-color: $gold;
+    }
+  }
+}
+
+@media #{$small-and-down} {
+  // styles for small screens and down
+}
+@media #{$medium-and-up} {
+  // styles for medium screens and larger
+}
+@media #{$medium-and-down} {
+  // styles for medium screens and down
+}
+@media #{$large-and-up} {
+  // styles for large screens and up
+}
+@media #{$extra-large-and-up} {
+  // styles for extra large screens and up
+}
