@@ -1,0 +1,106 @@
+{
+  "kind": "singleType",
+  "collectionName": "mtvs",
+  "info": {
+    "name": "mtv",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "banner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "invest_process_top": {
+      "type": "string"
+    },
+    "invest_process_right": {
+      "type": "string"
+    },
+    "invest_process_bottom": {
+      "type": "string"
+    },
+    "invest_process_left": {
+      "type": "string"
+    },
+    "invest_process_center": {
+      "type": "string"
+    },
+    "invest_process_title": {
+      "type": "string"
+    },
+    "fundamental_title": {
+      "type": "string"
+    },
+    "fundamental_top_title": {
+      "type": "string"
+    },
+    "fundamental_top_body": {
+      "type": "richtext"
+    },
+    "fundamental_right_title": {
+      "type": "string"
+    },
+    "fundamental_right_body": {
+      "type": "richtext"
+    },
+    "fundamental_bottom_title": {
+      "type": "string"
+    },
+    "fundamental_bottom_body": {
+      "type": "richtext"
+    },
+    "fundamental_left_title": {
+      "type": "string"
+    },
+    "fundamental_left_body": {
+      "type": "richtext"
+    },
+    "technical_title": {
+      "type": "string"
+    },
+    "technical_left_title": {
+      "type": "string"
+    },
+    "technical_left_body": {
+      "type": "richtext"
+    },
+    "technical_top_title": {
+      "type": "string"
+    },
+    "technical_top_body": {
+      "type": "richtext"
+    },
+    "technical_right_title": {
+      "type": "string"
+    },
+    "technical_right_body": {
+      "type": "richtext"
+    },
+    "technical_bottom_title": {
+      "type": "string"
+    },
+    "technical_bottom_body": {
+      "type": "richtext"
+    }
+  }
+}

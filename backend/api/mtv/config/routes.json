@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/mtv",
+      "handler": "mtv.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/mtv",
+      "handler": "mtv.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/mtv",
+      "handler": "mtv.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

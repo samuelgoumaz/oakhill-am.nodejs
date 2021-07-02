@@ -16,6 +16,80 @@
       mask-clip: border-box;
       mask-position: center;
       mask-repeat: no-repeat;
+      filter: grayscale(100);
+    }
+  }
+}
+
+/* partners
+--------------------- */
+section.section-partners {
+  background: $black-secondary;
+
+  .section-inner {
+    .partner {
+      @include aspect-ratio(800,600);
+      background: $black-primary;
+      border: 1px solid $black-secondary;
+      @include transition(all 1s ease);
+
+      &:hover {
+        background: black;
+      }
+    }
+  }
+}
+
+/* services
+--------------------- */
+section.section-services {
+  background: black;
+  border-top: 1px solid $black-secondary;
+  background: $black-secondary;
+
+  .section-inner {
+    .services {
+      @include aspect-ratio(1,1);
+      background: $black-primary;
+      border: 1px solid $black-secondary;
+      @include transition(all 1s ease);
+
+      &:hover {
+        background: black;
+      }
+
+      .inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: table;
+        top: 0;
+        left: 0;
+
+        .header {
+          display: table-cell;
+          vertical-align: middle;
+
+          .icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid $silver-bg;
+            border-radius: 40px;
+            color: $silver-bg;
+          }
+          .title {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.875em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
     }
   }
 }
@@ -204,6 +278,24 @@ section.section-title {
           letter-spacing: 0.1em;
           font-size: 1.25em;
         }
+      }
+    }
+  }
+}
+
+/* footer
+--------------------- */
+footer#footer {
+  background: $black-primary;
+
+  .footer-inner {
+
+    .col {
+      padding: 40px;
+      text-align: center;
+
+      &:first-child {
+        border-right: 1px solid $black-thrid;
       }
     }
   }

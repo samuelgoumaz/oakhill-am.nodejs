@@ -1,19 +1,23 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Gradient from '../components/gradient/Gradient.js'
-import Sections from '../components/section/Section.js'
+import Head from 'next/head';
+import Image from 'next/image';
+import Gradient from '../components/gradient/Gradient.js';
+import Sections from '../components/section/Section.js';
+import Mtv from '../components/mtv/MarketTimingView.js';
+import Partners from '../components/partners/Partners.js';
+import Services from '../components/services/Services.js';
+import Footer from '../components/footer/Footer.js';
 import Slide from 'react-reveal/Slide';
 import Link from "next/link";
 import Fade from 'react-reveal/Fade';
-import clipHorizontal from '../public/mask/mask_horizontal.png'
-import clipVertical from '../public/mask/mask_vertical.png'
-import { fetchQuery } from '../lib/_utils'
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337"
+import clipHorizontal from '../public/mask/mask_horizontal.png';
+import clipVertical from '../public/mask/mask_vertical.png';
+import { fetchQuery } from '../lib/_utils';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 /*
 # Class
 */
-export default function Home({ homepage }) {
+export default function Home({ homepage, mtv, partner, services, skills, brandings, footer }) {
   return (
     <>
       <Head>
@@ -27,7 +31,7 @@ export default function Home({ homepage }) {
           <div className="gradient">
             <div className="cover">
               <Fade left>
-                {/**<Gradient id="branding" mask={clipHorizontal} />**/}
+                {<Gradient id="branding" mask={clipHorizontal} />}
               </Fade>
             </div>
           </div>
@@ -91,6 +95,17 @@ export default function Home({ homepage }) {
           <Sections content={homepage.section} />
           {console.log(homepage.section)}
 
+          {/* Market Timing View */}
+          <Mtv content={mtv} />
+
+          {/* Services */}
+          <Services content={services} elements={skills} />
+
+          {/* Partners */}
+          <Partners content={partner} elements={brandings} />
+
+          {/* Footer */}
+          <Footer content={footer} />
 
         </div>
       </section>
@@ -100,10 +115,22 @@ export default function Home({ homepage }) {
 
 export async function getStaticProps() {
   const homepage = await fetchQuery('homepage');
+  const mtv = await fetchQuery('mtv');
+  const partner = await fetchQuery('partner');
+  const services = await fetchQuery('services');
+  const footer = await fetchQuery('footer');
+  const brandings = await fetchQuery('brandings');
+  const skills = await fetchQuery('skills');
 
   return {
     props: {
       homepage,
+      mtv,
+      partner,
+      services,
+      brandings,
+      footer,
+      skills
     }
   }
 }
