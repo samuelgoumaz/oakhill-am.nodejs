@@ -38,7 +38,7 @@ const PartnersDefault = props => {
   return (
     <>
       {/** sections **/}
-      <section className="section section-sections">
+      <section className="section section-sections" id="partners">
         <div className="section-inner">
           <Fade bottom>
             <div className={classnames("section row", styles.section)}>

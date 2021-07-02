@@ -55,7 +55,7 @@ function MenuWidget() {
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="#contact">
+              <Link href="#footer">
                 Contact
               </Link>
             </li>

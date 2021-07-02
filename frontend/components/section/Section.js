@@ -42,7 +42,7 @@ const SectionDefault = props => {
 
           {props.content.map((item, i) =>
             <Fade bottom>
-              <div className={classnames("section row", styles.section)}>
+              <div className={classnames("section row", styles.section)} id={item.menu}>
                   <div className={classnames("inner", styles.inner)} width="100%" height="auto">
 
 

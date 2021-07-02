@@ -7,7 +7,6 @@ import Slide from 'react-reveal/Slide';
 import styles from './Footer.module.scss';
 import classnames from "classnames";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
-
 //import Headroom from "headroom.js";
 
 const PartnersDefault = props => {

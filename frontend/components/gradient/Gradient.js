@@ -233,7 +233,7 @@ const GradientDefault = props => {
             gl_FragColor = vec4(color, 1.0);
         }
       `}} />
-      <div ref={myCanvas} className={classnames("gradient-content", styles.content)} style={{
+      <div id="homepage" ref={myCanvas} className={classnames("gradient-content", styles.content)} style={{
         maskImage: `url(${props.mask})`
       }}>
       </div>
