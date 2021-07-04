@@ -92,20 +92,20 @@ export default function Home({ homepage, mtv, partner, services, skills, brandin
           </section>
 
           {/* section page */}
-          <Sections content={homepage.section} />
+          <Sections key="sections" content={homepage.section} />
           {console.log(homepage.section)}
 
           {/* Market Timing View */}
           <Mtv content={mtv} />
 
           {/* Services */}
-          <Services content={services} elements={skills} />
+          <Services key="services" content={services} elements={skills} />
 
           {/* Partners */}
-          <Partners content={partner} elements={brandings} />
+          <Partners key="partners" content={partner} elements={brandings} />
 
           {/* Footer */}
-          <Footer content={footer} />
+          <Footer key="footer" content={footer} />
 
         </div>
       </section>

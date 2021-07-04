@@ -80,7 +80,7 @@ const ServicesDefault = props => {
       <section className="section section-services">
         <div className="section-inner row">
           {props.elements.map((item, i) =>
-            <div className={classnames("services col s6 m4 l3", styles.services)}>
+            <div key={item.id} className={classnames("services col s6 m4 l3", styles.services)}>
               <div className={classnames("inner", styles.inner)} width="100%" height="auto">
 
                 <div className={classnames("header", styles.header)}>

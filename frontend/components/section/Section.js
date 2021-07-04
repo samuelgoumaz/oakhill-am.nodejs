@@ -41,7 +41,7 @@ const SectionDefault = props => {
         <div className="section-inner">
 
           {props.content.map((item, i) =>
-            <Fade bottom>
+            <Fade key={item.id} bottom>
               <div className={classnames("section row", styles.section)} id={item.menu}>
                   <div className={classnames("inner", styles.inner)} width="100%" height="auto">
 

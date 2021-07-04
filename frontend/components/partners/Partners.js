@@ -80,7 +80,7 @@ const PartnersDefault = props => {
         <div className="section-inner row">
 
           {props.elements.map((item, i) =>
-            <div className={classnames("partner col s6 m3 l3", styles.section)}>
+            <div key={item.id} className={classnames("partner col s6 m3 l3", styles.section)}>
               <div className={classnames("partner-inner", styles.inner)} width="100%" height="auto">
 
                 {item.branding && <div className={classnames("background", styles.background)}>
