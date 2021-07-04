@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next start",
-    "start": "next start"
+    "dev": "node server.js --hostname 185.34.102.4 --port 8080",
+    "build": "next build && next start --port 8080",
+    "start": "next build && next start NODE_ENV=production node server.js --hostname 185.34.102.4 --port 8080"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
