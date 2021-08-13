@@ -29,11 +29,11 @@ export default function Home({ homepage, mtv, partner, services, skills, brandin
 
           {/* background cover */}
           <div className="gradient">
-            <div className="cover">
-              <Fade left>
-                {<Gradient id="branding" mask={clipHorizontal} />}
-              </Fade>
-            </div>
+            <Fade left>
+              <div className="cover">
+                  {<Gradient id="branding" mask={clipHorizontal} />}
+              </div>
+            </Fade>
           </div>
 
           {/* banner */}

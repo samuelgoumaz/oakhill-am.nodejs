@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
 import styles from './MarketTimingView.module.scss';
 import classnames from "classnames";
-import schema from '../../public/assets/schema.png'
+import schema from '../../public/assets/oakhill-slide-3.png'
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 //import Headroom from "headroom.js";
@@ -126,7 +126,12 @@ const MarketTimingViewDefault = props => {
             <div id="invest-process" className={classnames("slide part", styles.part)}>
               <div className={classnames("part-inner", styles.inner)}>
                 <h2 className={classnames("part-title", styles.title)}>invest-process</h2>
-                <div className={classnames("part-content row", styles.inner)}>
+                <div className={classnames("part-content row", styles.inner)} style={{
+                  backgroundImage: `url(/assets/oakhill-slide-1.png)`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "40%",
+                  backgroundPosition: "center"
+                }}>
                   <div className={classnames("col s4 m4 l4")}>
                     <Fade left>
                       <div className={classnames("ball left")}>
@@ -173,11 +178,11 @@ const MarketTimingViewDefault = props => {
                   <Slide top>
                     <div className={classnames("col col-left s6 m6 l6", styles.cols)}>
                       <div onClick={e => setFundamental("top")} className={classnames("demi-round top", styles.demiRound, fundamental == "top" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.fundamental_top_title}</h4>
+                        <span className={classnames("title")}>{props.content.fundamental_top_title}</span>
                       </div>
                       <div className={classnames("clear", styles.clear)} />
                       <div onClick={e => setFundamental("bottom")} className={classnames("demi-round bottom", styles.demiRound, fundamental == "bottom" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.fundamental_bottom_title}</h4>
+                        <span className={classnames("title")}>{props.content.fundamental_bottom_title}</span>
                       </div>
                     </div>
                   </Slide>
@@ -185,11 +190,11 @@ const MarketTimingViewDefault = props => {
                   <Slide bottom>
                     <div className={classnames("col col-right s6 m6 l6", styles.cols)}>
                       <div onClick={e => setFundamental("right")} className={classnames("demi-round top", styles.demiRound, fundamental == "right" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.fundamental_right_title}</h4>
+                        <span className={classnames("title")}>{props.content.fundamental_right_title}</span>
                       </div>
                       <div className={classnames("clear", styles.clear)} />
                       <div onClick={e => setFundamental("left")} className={classnames("demi-round bottom", styles.demiRound, fundamental == "left" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.fundamental_left_title}</h4>
+                        <span className={classnames("title")}>{props.content.fundamental_left_title}</span>
                       </div>
                     </div>
                   </Slide>
@@ -215,11 +220,11 @@ const MarketTimingViewDefault = props => {
                   <Slide bottom>
                     <div className={classnames("col col-left s6 m6 l6", styles.cols)}>
                       <div onClick={e => setTechnical("top")} className={classnames("demi-round top", styles.demiRound, technical == "top" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.technical_top_title}</h4>
+                        <span className={classnames("title")}>{props.content.technical_top_title}</span>
                       </div>
                       <div className={classnames("clear", styles.clear)} />
                       <div onClick={e => setTechnical("bottom")} className={classnames("demi-round bottom", styles.demiRound, technical == "bottom" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.technical_bottom_title}</h4>
+                        <span className={classnames("title")}>{props.content.technical_bottom_title}</span>
                       </div>
                     </div>
                   </Slide>
@@ -227,11 +232,11 @@ const MarketTimingViewDefault = props => {
                   <Slide top>
                     <div className={classnames("col col-right s6 m6 l6", styles.cols)}>
                       <div onClick={e => setTechnical("left")} className={classnames("demi-round top", styles.demiRound, technical == "left" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.technical_left_title}</h4>
+                        <span className={classnames("title")}>{props.content.technical_left_title}</span>
                       </div>
                       <div className={classnames("clear", styles.clear)} />
                       <div onClick={e => setTechnical("right")} className={classnames("demi-round bottom", styles.demiRound, technical == "right" ? "active" : "")}>
-                        <h4 className={classnames("title")}>{props.content.technical_right_title}</h4>
+                        <span className={classnames("title")}>{props.content.technical_right_title}</span>
                       </div>
                     </div>
                   </Slide>
@@ -273,14 +278,12 @@ const MarketTimingViewDefault = props => {
                   </Slide>
 
                   <Slide left>
-                    <div className={classnames("col s12 m12 l12 circle")}>
-                      <div className="content">
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        <div className="title"><strong>MTV</strong><br />Signal</div>
-                      </div>
+                    <div className={classnames("col s12 m12 l12 circle")}  style={{
+                      backgroundImage: `url(/assets/oakhill-slide-2.png)`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "40%",
+                      backgroundPosition: "center"
+                    }}>
                     </div>
                   </Slide>
 

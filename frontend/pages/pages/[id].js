@@ -26,8 +26,10 @@ const Page = ({ page, pages, footer, mtv, partner, brandings }) => {
         <section className="section-header">
           <div className="section-inner row">
             <div className="col s6 m6 l6 col-branding">
-              <img className="logotype" src={"/assets/branding.svg"} />
-              <h1 className="branding">OakHill</h1>
+              <Link href="/">
+                <img className="logotype" src={"/assets/branding.svg"} />
+              </Link>
+                <h1 className="branding"><Link href="/">OakHill</Link></h1>
             </div>
             <div className="col s6 m6 l6 col-tools">
               <ul className="language">
@@ -55,7 +57,7 @@ const Page = ({ page, pages, footer, mtv, partner, brandings }) => {
           </section>}
 
           {/* title */}
-          <section className="section section-title">
+          <section className="section section-title compact">
             <Fade right>
             <div className="section-inner row">
               <div className="col col-title s12 m12 l12">
