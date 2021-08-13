@@ -30,32 +30,42 @@ function MenuWidget() {
           {/** Menu **/}
           <ul className={classnames('menu', styles.menu)}>
             <li className="item" onClick={toggle}>
-              <Link href="#homepage">
+              <Link href="/">
                 Accueil
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="#strategy">
-                Stratégie
+              <Link href="/pages/1">
+                Entreprise
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="#method">
-                Méthode
+              <Link href="/pages/2">
+                Activité
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="#services">
-                Services
+              <Link href="/pages/3">
+                Plateforme
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="#partners">
-                Partners
+              <Link href="/pages/4">
+                Processus d'investissement
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="#footer">
+              <Link href="/pages/5">
+                Fonds de placements
+              </Link>
+            </li>
+            <li className="item" onClick={toggle}>
+              <Link href="/pages/6">
+                Pré-IPO
+              </Link>
+            </li>
+            <li className="item" onClick={toggle}>
+              <Link href="/pages/7">
                 Contact
               </Link>
             </li>

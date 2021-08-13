@@ -17,7 +17,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 /*
 # Class
 */
-export default function Home({ homepage, mtv, partner, services, skills, brandings, footer }) {
+export default function Partners({ homepage, mtv, partner, services, skills, brandings, footer }) {
   return (
     <>
       <Head>
@@ -31,7 +31,7 @@ export default function Home({ homepage, mtv, partner, services, skills, brandin
           <div className="gradient">
             <div className="cover">
               <Fade left>
-                {<Gradient id="branding" mask={clipHorizontal} />}
+                {/*<Gradient id="branding" mask={clipHorizontal} />*/}
               </Fade>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Home({ homepage, mtv, partner, services, skills, brandin
           </section>
 
           {/* banner */}
-          <section className="section section-address">
+          <section className="section section-header">
             <Fade left>
               <div className="section-inner row">
                 <div className="col col-title s3 m3 l3">
@@ -94,6 +94,9 @@ export default function Home({ homepage, mtv, partner, services, skills, brandin
           {/* section page */}
           <Sections key="sections" content={homepage.section} />
           {console.log(homepage.section)}
+
+          {/* Market Timing View */}
+          <Mtv content={mtv} />
 
           {/* Services */}
           <Services key="services" content={services} elements={skills} />

@@ -9,10 +9,10 @@ $black-thrid: #333;
 
 $text-grey: #999;
 $text-white: #222;
-$silver-bg: #bcc6cc;
+$silver-bg: #c48f03;
 
-$gold: #bcc6cc;
-$silver: linear-gradient(to right, #bcc6cc, #eee, #bcc6cc);
+$gold: #c48f03;
+$silver: linear-gradient(to right, #dab703, #c48f03);
 
 @keyframes shine {
   0% { transform:translateX(-100%) translateY(-100%) rotate(30deg) }

@@ -21,6 +21,60 @@
   }
 }
 
+/* header
+--------------------- */
+section.section-header {
+  width: 100%;
+  background: $black;
+  border-bottom: 1px solid $black-secondary;
+
+  .section-inner {
+    padding: 0 80px;
+    height: 80px;
+    line-height: 80px;
+
+    .col {
+      padding: 0;
+      margin: 0;
+
+      &.col-branding {
+        padding: 0;
+
+        .logotype {
+          height: 60px;
+          width: auto;
+          display: block;
+          float: left;
+          margin: 10px;
+        }
+        .branding {
+          padding: 0;
+          display: block;
+          float: left;
+          font-size: 2em;
+          font-family: $font-main-italic;
+          color: white;
+        }
+      }
+      &.col-tools {
+        text-align: right;
+        ul {
+          li {
+            width: 30px;
+            height: 30px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 0.75em;
+            letter-spacing: 0.1em;
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+  }
+}
+
 /* partners
 --------------------- */
 section.section-partners {
@@ -102,7 +156,6 @@ section.section-sections {
   .section-inner {
     .section {
       width: 100%;
-      height: 50vh;
       min-height: 600px;
       background: red;
       display: block;
@@ -110,6 +163,12 @@ section.section-sections {
       background: $black;
 
       .inner {
+        &:after {
+          width: 100%;
+          content: " ";
+          display: block;
+          clear: both;
+        }
         .content {
           width: 66.66%;
           height: auto;
@@ -118,7 +177,7 @@ section.section-sections {
           display: table;
           bottom: 0;
           z-index: 3;
-          font-size: 1.5em;
+          font-size: 1.15em;
           text-align: left;
 
           .button {
@@ -204,9 +263,9 @@ section.section-sections {
   }
 }
 
-/* banner
+/* address
 --------------------- */
-section.section-header {
+section.section-address {
   z-index: 3;
   position: relative;
   background: $black;
