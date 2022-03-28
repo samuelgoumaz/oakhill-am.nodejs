@@ -3,7 +3,8 @@
 --------------------- */
 section.section-mtv {
   background: $black-primary;
-  border-top: 1px solid $black-thrid;
+  //border-top: 1px solid $black-thrid;
+  border-bottom: 1px solid $black-thrid;
 
   .col-slider {
     background: $black-primary;
@@ -39,6 +40,15 @@ section.section-mtv {
       .background {
         transform: scale(1.5);
       }
+    }
+
+    .slide {
+      width: 100%;
+      height: auto;
+      min-height: 800px;
+      display: block;
+      position: relative;
+      border-top: 1px solid $text-white;
     }
 
     #strategy-monitoring.part {
@@ -334,7 +344,7 @@ section.section-mtv {
         }
 
         .circle {
-          height: calc(100% - 240px);
+          height: 560px;
           display: block;
           margin: 0 auto;
           padding: 120px 0;
@@ -401,6 +411,28 @@ section.section-mtv {
           }
         }
 
+        .lines {
+          &.top {
+            margin: 0 auto;
+            width: calc(70% - 40px);
+            left: calc(15% + 20px);
+            display: block;
+            position: absolute;
+            top: 180px;
+            border-bottom: 1px solid $text-grey;
+          }
+          &.bottom {
+            margin: 0 auto;
+            width: calc(70% - 40px);
+            left: calc(15% + 20px);
+            bottom: 140px;
+            display: block;
+            position: absolute;
+            z-index: 8;
+            border-top: 1px solid $text-grey;
+          }
+        }
+
         .category {
           margin: 0 auto;
           line-height: 60px;
@@ -414,8 +446,7 @@ section.section-mtv {
           &:nth-child(1) {
             &:before {
               bottom: -40px;
-              content: "south_east";
-              font-family: "Material Icons";
+              content: " ";
               text-transform: lowercase;
               width: 40px;
               height: 40px;
@@ -425,29 +456,29 @@ section.section-mtv {
               left: calc(50% - 20px);
               text-align: center;
               line-height: 40px;
+              border-left: 1px solid $text-grey;
             }
           }
           &:nth-child(2) {
             &:before {
-              bottom: -40px;
-              content: "south";
-              font-family: "Material Icons";
+              top: 60px;
+              content: " ";
               text-transform: lowercase;
-              width: 40px;
-              height: 40px;
+              width: 20px;
+              height: 80px;
               display: block;
               position: absolute;
               font-size: 2em;
               left: calc(50% - 20px);
               text-align: center;
               line-height: 40px;
+              border-right: 1px solid $text-grey;
             }
           }
           &:nth-child(3) {
             &:before {
               bottom: -40px;
-              content: "south_west";
-              font-family: "Material Icons";
+              content: " ";
               text-transform: lowercase;
               width: 40px;
               height: 40px;
@@ -457,46 +488,14 @@ section.section-mtv {
               left: calc(50% - 20px);
               text-align: center;
               line-height: 40px;
+              border-right: 1px solid $text-grey;
             }
           }
 
-          &:nth-child(5) {
-            &:before {
-              top: -40px;
-              content: "north_east";
-              font-family: "Material Icons";
-              text-transform: lowercase;
-              width: 40px;
-              height: 40px;
-              display: block;
-              position: absolute;
-              font-size: 2em;
-              left: calc(50% - 20px);
-              text-align: center;
-              line-height: 40px;
-            }
-          }
-          &:nth-child(6) {
-            &:before {
-              top: -40px;
-              content: "north";
-              font-family: "Material Icons";
-              text-transform: lowercase;
-              width: 40px;
-              height: 40px;
-              display: block;
-              position: absolute;
-              font-size: 2em;
-              left: calc(50% - 20px);
-              text-align: center;
-              line-height: 40px;
-            }
-          }
           &:nth-child(7) {
             &:before {
               top: -40px;
-              content: "north_west";
-              font-family: "Material Icons";
+              content: " ";
               text-transform: lowercase;
               width: 40px;
               height: 40px;
@@ -506,6 +505,39 @@ section.section-mtv {
               left: calc(50% - 20px);
               text-align: center;
               line-height: 40px;
+              border-left: 1px solid $text-grey;
+            }
+          }
+          &:nth-child(8) {
+            &:before {
+              bottom: 60px;
+              content: " ";
+              text-transform: lowercase;
+              width: 20px;
+              height: 80px;
+              display: block;
+              position: absolute;
+              font-size: 2em;
+              left: calc(50% - 20px);
+              text-align: center;
+              line-height: 40px;
+              border-right: 1px solid $text-grey;
+            }
+          }
+          &:nth-child(9) {
+            &:before {
+              top: -40px;
+              content: " ";
+              text-transform: lowercase;
+              width: 40px;
+              height: 40px;
+              display: block;
+              position: absolute;
+              font-size: 2em;
+              left: calc(50% - 20px);
+              text-align: center;
+              line-height: 40px;
+              border-right: 1px solid $text-grey;
             }
           }
 
@@ -515,7 +547,7 @@ section.section-mtv {
             line-height: 1;
             padding: 20px 0;
             text-align: center;
-            color: $silver;
+            color: $gold;
             display: inline-block;
             background: $black-thrid;
             position: relative;
@@ -608,8 +640,8 @@ section.section-mtv {
 
             &:hover, &.active {
               background: $gold;
-              transform: scale(1.2);
-              margin: 40px;
+              transform: scale(1);
+              margin: 10px;
             }
 
             .title {
@@ -804,14 +836,15 @@ section.section-mtv {
     padding: 0px;
 
     .header {
-      padding: 80px 30px 30px 30px;
+      padding: 40px;
       .title {
-        font-size: 1.5em;
-        color: white;
+        font-size: 2em;
+        color: $gold;
+        font-family: $font-main-italic;
+        margin-bottom: 20px;
       }
       .body {
         width: 100%;
-        margin-bottom: 40px;
       }
     }
 

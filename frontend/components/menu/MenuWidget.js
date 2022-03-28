@@ -1,12 +1,12 @@
 /* components/cart/cart.js */
 import React, { useContext, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import styles from './MenuWidget.module.scss';
 import classnames from "classnames";
 
 function MenuWidget() {
-
+  const { locale, locales, asPath } = useRouter();
   const router = useRouter();
 
   /* useState */
@@ -35,38 +35,28 @@ function MenuWidget() {
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="/pages/1">
+              <Link href={`/${locale}/pages/8`}>
                 Entreprise
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="/pages/2">
+              <Link href={`/${locale}/pages/7`}>
                 Activité
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="/pages/3">
+              <Link href={`/${locale}/pages/9`}>
                 Plateforme
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="/pages/4">
+              <Link href={`/${locale}/pages/10`}>
                 Processus d'investissement
               </Link>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="/pages/5">
-                Fonds de placements
-              </Link>
-            </li>
-            <li className="item" onClick={toggle}>
-              <Link href="/pages/6">
+              <Link href={`/${locale}/pages/6`}>
                 Pré-IPO
-              </Link>
-            </li>
-            <li className="item" onClick={toggle}>
-              <Link href="/pages/7">
-                Contact
               </Link>
             </li>
           </ul>

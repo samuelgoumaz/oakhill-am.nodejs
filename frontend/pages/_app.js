@@ -11,7 +11,7 @@
 */
 
 /* Basics Importation */
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom';
 import App from "next/app";
 import Head from "next/head";
@@ -19,6 +19,9 @@ import { createContext } from "react";
 import { getStrapiMedia } from "../lib/media";
 import Layout from "../components/parts/Layout";
 import Progress from "../components/progress/Progress.js"
+import NextNProgress from 'nextjs-progressbar'
+import AppContext from '../context/AppContext'
+import { useRouter } from 'next/router'
 
 /*
 # Api Importation */
@@ -48,13 +51,37 @@ export const GlobalContext = createContext({});
 */
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
+  const [language, setLanguage] = useState(false);
+  const router = useRouter()
+
+  const languageSwitcher = (language) => {
+    if (!language) {
+      setLanguage("en")
+    } else {
+      setLanguage(language)
+    }
+    router.reload(`/${language}`)
+  }
 
   return (
-    <GlobalContext.Provider value={global}>
+    <AppContext.Provider value={{
+      global: global,
+      languageSwitcher: languageSwitcher,
+      language: language ? language : "en"
+
+    }}>
+      <NextNProgress
+      color="#c48f03"
+      startPosition={0.3}
+      stopDelayMs={200}
+      height={3}
+      showOnShallow={true}
+      />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </GlobalContext.Provider>
+
+    </AppContext.Provider>
   )
 }
 

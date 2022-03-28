@@ -3,16 +3,47 @@ html {
    scroll-behavior: smooth;
  }
 body {
-  background: black;
+  background: $black-primary;
   font-family: $font-main-regular;
   color: $text-grey;
 }
+.page-background {
+  position: fixed;
+  top: 0;
+  background-repeat: no-repeat;
+}
+.page {
 
+  &.homepage {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
 main#main {
   position: relative;
   z-index: 1;
 }
+.body {
+  p {
+    margin-bottom: 20px;
+  }
+  strong {
+    color: $gold;
+  }
+  ul {
 
+    li {
+      list-style: initial;
+      margin-left: 20px;
+    }
+  }
+}
 .button {
   width: 60px;
   height: 60px;

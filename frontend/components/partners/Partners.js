@@ -59,15 +59,13 @@ const PartnersDefault = props => {
 
                   <div className={classnames("header", styles.header)}>
                     <h1 className={classnames("title", styles.title)}>
-                      {props.content.icon && <span className={classnames("icon material-icons", styles.icon)}>{props.content.icon}</span>}
+                      <span className={classnames("icon material-icons", styles.icon)}>people</span>
                       {props.content.title}
                     </h1>
                   </div>
 
                   {props.content.banner && <div className={classnames("background", styles.background)}>
-                    <div className={classnames("cover", styles.cover)} style={{
-                      backgroundImage: `url(${API_URL+props.content.banner.url})`
-                    }} />
+                    <div className={classnames("cover", styles.cover)} />
                   </div>}
 
                 </div>

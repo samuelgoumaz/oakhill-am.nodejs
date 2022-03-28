@@ -45,31 +45,32 @@ const SectionDefault = props => {
               <div className={classnames("section row", styles.section)} id={item.menu}>
                   <div className={classnames("inner", styles.inner)} width="100%" height="auto">
 
+                    {/**item.banner && <div className="background" style={{
+                      backgroundImage: `url(${API_URL+`${item.banner.url}`})`,
+                      backgroundCover: `cover`,
+                      backgroundPosition: `center`,
+                      opacity: 0.1
+                    }}></div>**/}
 
                     <Fade left>
-                    <div className={classnames("content", styles.content)}>
-                      <div className={classnames("body", styles.body)} dangerouslySetInnerHTML={{__html:item.description}} />
-                      <Link href="#">
-                        <span className="button round material-icons">
-                          arrow_downward
-                        </span>
-                      </Link>
-                    </div>
+                      <div className={classnames("header", styles.header)}>
+                        <h1 className={classnames("title", styles.title)}>
+                          {item.icon && <span className={classnames("icon material-icons", styles.icon)}>{item.icon}</span>}
+                          {item.title}
+                        </h1>
+                      </div>
                     </Fade>
 
-
-                    <div className={classnames("header", styles.header)}>
-                      <h1 className={classnames("title", styles.title)}>
-                        {item.icon && <span className={classnames("icon material-icons", styles.icon)}>{item.icon}</span>}
-                        {item.title}
-                      </h1>
-                    </div>
-
-                    {item.banner && <div className={classnames("background", styles.background)}>
-                      <div className={classnames("cover", styles.cover)} style={{
-                        backgroundImage: `url(${API_URL+item.banner.url})`
-                      }} />
-                    </div>}
+                    <Fade left>
+                      <div className={classnames("content", styles.content)}>
+                        <div className={classnames("body", styles.body)} dangerouslySetInnerHTML={{__html:item.description}} />
+                        <Link href="#">
+                          <span className="button round material-icons">
+                            arrow_downward
+                          </span>
+                        </Link>
+                      </div>
+                    </Fade>
 
                   </div>
               </div>

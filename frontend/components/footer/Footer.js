@@ -37,12 +37,8 @@ const PartnersDefault = props => {
   return (
     <footer id="footer">
       <div className="footer-inner row">
-        <div className="col col-left s12 m6 l6" dangerouslySetInnerHTML={{__html:props.content.company}}>
-
-        </div>
-        <div className="col col-right s12 m6 l6" dangerouslySetInnerHTML={{__html:props.content.contact}}>
-
-        </div>
+        <div className="col col-left s12 m6 l6" dangerouslySetInnerHTML={{__html:props.content.company}} />
+        <div className="col col-right s12 m6 l6" dangerouslySetInnerHTML={{__html:props.content.contact}} />
       </div>
     </footer>
   )

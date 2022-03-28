@@ -74,58 +74,59 @@ const MarketTimingViewDefault = props => {
     <section className="section section-mtv">
       <div className="section-inner row">
 
-        <div className={classnames("col col-menu s12 m3 l3", styles.colMenu)}>
+        <div className={classnames("col col-menu s12 m8 l9", styles.colMenu)}>
 
           {/* header */}
           <div className="header">
-            {props.content.title && <h2 className="title">{props.content.title}</h2>}
+            {props.content.title && <h1 className="title">{props.content.title}</h1>}
             {props.content.description && <div className={classnames("body", styles.description)} dangerouslySetInnerHTML={{__html:props.content.description}} />}
           </div>
 
-          {/* menu */}
+          {/* menu
           <ul className={classnames("menu", styles.menu)}>
             <li className="item" onClick={getSlide0}>
               <a>
-                Invest Process
+                {props.content.invest_process_title}
               </a>
             </li>
             <li className="item" onClick={getSlide1}>
               <a>
-                Fundamental
+                {props.content.fundamental_title}
               </a>
             </li>
             <li className="item" onClick={getSlide2}>
               <a>
-                Fundamental & Technical
+                {props.content.technical_title}
               </a>
             </li>
             <li className="item" onClick={getSlide3}>
               <a>
-                Data Processing
+                {props.content.processing_title}
               </a>
             </li>
             <li className="item" onClick={getSlide4}>
               <a>
-                Signals
+                {props.content.signals_title}
               </a>
             </li>
             <li className="item" onClick={getSlide5}>
               <a>
-                Strategy & Monitoring
+                {props.content.monitoring_title}
               </a>
             </li>
           </ul>
-
+          */}
         </div>
-        <div className={classnames("col col-slider s12 m9 l9", styles.menu)}>
-          <div className="background" style={{
+
+        <div className={classnames("col col-slider s12 m12 l12", styles.menu)}>
+          {/**<div className="background" style={{
             backgroundImage: `url(${API_URL+props.content.banner.url})`
-          }} />
-          <Slick ref={slider}>
+          }} />**/}
+          {/**<Slick ref={slider}>**/}
 
             <div id="invest-process" className={classnames("slide part", styles.part)}>
               <div className={classnames("part-inner", styles.inner)}>
-                <h2 className={classnames("part-title", styles.title)}>invest-process</h2>
+                <h2 className={classnames("part-title", styles.title)}>{props.content.invest_process_title}</h2>
                 <div className={classnames("part-content row", styles.inner)} style={{
                   backgroundImage: `url(/assets/oakhill-slide-1.png)`,
                   backgroundRepeat: "no-repeat",
@@ -172,7 +173,7 @@ const MarketTimingViewDefault = props => {
 
             <div id="fundamental" className={classnames("slide part", styles.part)}>
               <div className={classnames("part-inner", styles.inner)}>
-                <h2 className={classnames("part-title", styles.title)}>Fundamental</h2>
+                <h2 className={classnames("part-title", styles.title)}>Fundamentals</h2>
                 <div className={classnames("part-content row", styles.inner)}>
 
                   <Slide top>
@@ -214,17 +215,18 @@ const MarketTimingViewDefault = props => {
 
             <div id="fundamental-technical" className={classnames("slide part", styles.part)}>
               <div className={classnames("part-inner", styles.inner)}>
-                <h2 className={classnames("part-title", styles.title)}>Fundamental & Technical</h2>
+                <h2 className={classnames("part-title", styles.title)}>Fundamentals & Technicals</h2>
                 <div className={classnames("part-content row", styles.inner)}>
 
                   <Slide bottom>
                     <div className={classnames("col col-left s6 m6 l6", styles.cols)}>
                       <div onClick={e => setTechnical("top")} className={classnames("demi-round top", styles.demiRound, technical == "top" ? "active" : "")}>
-                        <span className={classnames("title")}>{props.content.technical_top_title}</span>
+                        <span className={classnames("title")} dangerouslySetInnerHTML={{__html:props.content.technical_top_title}} />
                       </div>
                       <div className={classnames("clear", styles.clear)} />
                       <div onClick={e => setTechnical("bottom")} className={classnames("demi-round bottom", styles.demiRound, technical == "bottom" ? "active" : "")}>
-                        <span className={classnames("title")}>{props.content.technical_bottom_title}</span>
+                        <span className={classnames("title")}
+                        dangerouslySetInnerHTML={{__html:props.content.technical_bottom_title}} />
                       </div>
                     </div>
                   </Slide>
@@ -232,11 +234,12 @@ const MarketTimingViewDefault = props => {
                   <Slide top>
                     <div className={classnames("col col-right s6 m6 l6", styles.cols)}>
                       <div onClick={e => setTechnical("left")} className={classnames("demi-round top", styles.demiRound, technical == "left" ? "active" : "")}>
-                        <span className={classnames("title")}>{props.content.technical_left_title}</span>
+                        <span className={classnames("title")} dangerouslySetInnerHTML={{__html:props.content.technical_left_title}} />
                       </div>
                       <div className={classnames("clear", styles.clear)} />
                       <div onClick={e => setTechnical("right")} className={classnames("demi-round bottom", styles.demiRound, technical == "right" ? "active" : "")}>
-                        <span className={classnames("title")}>{props.content.technical_right_title}</span>
+                        <span className={classnames("title")}
+                        dangerouslySetInnerHTML={{__html:props.content.technical_right_title}} />
                       </div>
                     </div>
                   </Slide>
@@ -277,19 +280,27 @@ const MarketTimingViewDefault = props => {
                     </div>
                   </Slide>
 
+                  <div className={classnames("lines top")} />
+
                   <Slide left>
                     <div className={classnames("col s12 m12 l12 circle")}  style={{
-                      backgroundImage: `url(/assets/oakhill-slide-2.png)`,
+                      backgroundImage: `url(/assets/oakhill-mtv.svg)`,
                       backgroundRepeat: "no-repeat",
-                      backgroundSize: "40%",
+                      backgroundSize: "350px",
                       backgroundPosition: "center"
                     }}>
                     </div>
                   </Slide>
 
+                  <div className={classnames("lines bottom")} />
+
                   <Fade top>
                     <div className={classnames("col bottom s4 m4 l4 category")}>
-                      <span className="icon material-icons">hdr_weak</span>
+                      <span className="icon">
+                        <img width="60%" height="auto" className="schema" src={`/assets/compare.svg`} style={{
+                          margin: "0 auto"
+                        }} />
+                      </span>
                       Signal
                     </div>
 
@@ -391,7 +402,7 @@ const MarketTimingViewDefault = props => {
 
                   <Slide top>
                     <div className={classnames("col s12 m6 l6", styles.inner)}>
-                      <img width="100%" height="auto" className="schema" src={schema} />
+                      <img width="100%" height="auto" className="schema" src={`/assets/oakhill-arrows.svg`} />
                     </div>
                   </Slide>
 
@@ -442,8 +453,11 @@ const MarketTimingViewDefault = props => {
                       </div>
                     </div>
 
-                    <div className={classnames("col s12 m12 l12 follow")}>
-                      <h2>MTV</h2>
+                    <div className={classnames("col s12 m12 l12")}>
+                      <img width="75%" height="auto" src={`/assets/hopper.svg`} style={{
+                        margin: "0 auto",
+                        display: "block"
+                      }} />
                     </div>
 
                     <div className={classnames("col s12 m12 l12 text")}>
@@ -458,7 +472,7 @@ const MarketTimingViewDefault = props => {
                 </div>
               </div>
             </div>
-          </Slick>
+          {/**</Slick>**/}
         </div>
       </div>
     </section>

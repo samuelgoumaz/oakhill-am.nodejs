@@ -1,8 +1,21 @@
 header {
-  width: 50%;
-  height: 80px;
+  width: 100%;
+  height: 120px;
   position: fixed;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: linear-gradient(0deg, transparent, rgba(0,0,0,0.5));
+  @include transition(1s all ease);
   z-index: 98;
+
+  &.headroom--top {
+    transform: translateY(0);
+  }
+  &.headroom--unpinned {
+    transform: translateY(-120px);
+  }
+  &.headroom--pinned {
+    transform: translateY(0);
+  }
 
   .header-inner {
     width: 100%;
@@ -12,10 +25,28 @@ header {
 
     .col {
       &.col-branding {
+        padding: 10px 0;
+        text-align: center;
+        img {
+          display: inline-block;
+          height: 100px;
+          padding: 0;
+          cursor: pointer;
+        }
 
       }
       &.col-menu {
+        padding-top: 6px;
         text-align: right;
+
+        .social {
+          height: 80px;
+          width: 80px;
+          text-align: center;
+          line-height: 80px;
+          display: block;
+          float: right;
+        }
       }
     }
   }
@@ -26,7 +57,65 @@ nav {
 }
 // responsive
 @media #{$small-and-down} {
-  // styles for small screens and down
+  #navigation {
+    .col-menu {
+      #menu-widget {
+        .widget-toggle {
+          width: 60px !important;
+          height: 60px !important;
+          line-height: 70px !important;
+        }
+      }
+    }
+  }
+
+  header {
+    width: 100%;
+    height: 60px;
+
+    &.headroom--top {
+      transform: translateY(0);
+    }
+    &.headroom--unpinned {
+      transform: translateY(-60px);
+    }
+    &.headroom--pinned {
+      transform: translateY(0);
+    }
+
+    .header-inner {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+
+      .col {
+        &.col-branding {
+          padding: 0 0;
+          text-align: center;
+          img {
+            display: inline-block;
+            height: 60px;
+            padding: 5px 0;
+            cursor: pointer;
+          }
+
+        }
+        &.col-menu {
+          text-align: right;
+
+          .social {
+            height: 60px;
+            width: 60px;
+            text-align: center;
+            line-height: 60px;
+            display: block;
+          }
+
+        }
+      }
+    }
+  }
 }
 @media #{$medium-and-up} {
   // styles for medium screens and larger

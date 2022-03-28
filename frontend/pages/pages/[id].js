@@ -1,3 +1,5 @@
+import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
 import Head from 'next/head';
 import Image from 'next/image';
 import Gradient from '../../components/gradient/Gradient.js';
@@ -9,75 +11,79 @@ import Footer from '../../components/footer/Footer.js';
 import Slide from 'react-reveal/Slide';
 import Link from "next/link";
 import Fade from 'react-reveal/Fade';
+import AppContext from '../../context/AppContext'
 import { fetchAPI } from "../../lib/api";
+import classnames from "classnames";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 const Page = ({ page, pages, footer, mtv, partner, brandings }) => {
+  const appContext = useContext(AppContext);
+  const { locale, locales, asPath } = useRouter();
+
   return (
     <>
       <Head>
-        <title>{page[0].title_seo ? `${page[0].title_seo} | ` : "" }OakHill | Asset Management - Geneva, Switzerland</title>
-        {page[0].description_seo && <meta name="description" content={page[0].description_seo} />}
+        <title>{page.title_seo ? `${page.title_seo} | ` : "" }OakHill | Asset Management - Geneva, Switzerland</title>
+        {page.description_seo && <meta name="description" content={page.description_seo} />}
       </Head>
       <section className="page">
         <div className="page-inner">
 
-        {/* header */}
-        <section className="section-header">
-          <div className="section-inner row">
-            <div className="col s6 m6 l6 col-branding">
-              <Link href="/">
-                <img className="logotype" src={"/assets/branding.svg"} />
-              </Link>
-                <h1 className="branding"><Link href="/">OakHill</Link></h1>
-            </div>
-            <div className="col s6 m6 l6 col-tools">
-              <ul className="language">
-                <li>FR</li>
-                <li>EN</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-
           {/* banner */}
-          {page[0].banner && <section className="section section-banner">
-            <Fade top>
+          {page.banner && <section className="section section-banner">
               <div className="section-inner">
+
                 <div className="background">
+                  <Fade bottom>
                   <div className="cover" style={{
-                    backgroundImage: `url(${API_URL+page[0].banner.url})`,
+                    backgroundImage: `url(${API_URL+page.banner.url})`,
                     backgroundPosition: `center`,
                     backgroundSize: `cover`,
                   }}/>
+                  </Fade>
+
+                  <Fade left>
+                    <div className={classnames("header")}>
+                      <div className="header-inner">
+                        <h4 className={classnames("number")}>
+                        </h4>
+                        <h1 className={classnames("title")}>
+                          {page.title}
+                        </h1>
+                      </div>
+                    </div>
+                  </Fade>
+
                 </div>
               </div>
-            </Fade>
           </section>}
 
-          {/* title */}
-          <section className="section section-title compact">
-            <Fade right>
-            <div className="section-inner row">
-              <div className="col col-title s12 m12 l12">
-                <h1 className="title">{page[0].title}</h1>
-              </div>
+          <section className="section section-main">
+
+            {page.background && <div className="background" style={{
+              backgroundImage: `url(${API_URL+`${page.background.url}`})`,
+              backgroundCover: `cover`,
+              backgroundPosition: `center`,
+              opacity: 0.25,
+              filter: "blur(5px)"
+            }}></div>}
+
+            <div className="section-inner">
+
+              {/* section page */}
+              <Sections key="sections" content={page.section} />
+
+                {/* Market Timing View */}
+                {page.id == 4 || page.id == 10 && <Mtv content={mtv} />}
+
+                {/* Partners */}
+                {page.id == 1 || page.id == 8 && <Partners key="partners" content={partner} elements={brandings} />}
+
+                {/* Footer */}
+                <Footer key="footer" content={footer} />
+
             </div>
-            </Fade>
           </section>
-
-          {/* Market Timing View */}
-          {page[0].id == 4 && <Mtv content={mtv} />}
-
-          {/* section page */}
-          <Sections key="sections" content={page[0].section} />
-
-          {/* Partners */}
-          {page[0].id == 1 && <Partners key="partners" content={partner} elements={brandings} />}
-
-          {/* Footer */}
-          <Footer key="footer" content={footer} />
 
         </div>
       </section>
@@ -85,23 +91,19 @@ const Page = ({ page, pages, footer, mtv, partner, brandings }) => {
   );
 };
 
-export async function getStaticPaths() {
-  const pages = await fetchAPI("/pages");
 
-  return {
-    paths: pages.map((item) => ({
-      params: {
-        id: String(item.id),
-      },
-    })),
-    fallback: false,
-  };
-}
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const { locale } = context;
 
-export async function getStaticProps({ params }) {
-  const page = await fetchAPI(
-    `/pages?id=${params.id}`
-  );
+  let translation = false;
+  const myPage = await fetchAPI(`/pages/${id}`);
+
+  if (locale === "fr") {
+    translation = await fetchAPI(
+      `/pages/${myPage.localizations[0].id}`
+    );
+  }
 
   const pages = await fetchAPI("/pages");
   const footer = await fetchAPI('/footer');
@@ -111,15 +113,14 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      page: page,
+      page: translation ? translation : myPage,
       pages: pages,
       footer: footer,
       mtv: mtv,
       partner: partner,
       brandings: brandings,
     },
-    revalidate: 1,
   };
-}
+};
 
 export default Page;
