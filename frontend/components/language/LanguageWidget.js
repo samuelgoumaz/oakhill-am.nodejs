@@ -30,10 +30,10 @@ function LanguageWidget() {
         <div className={classnames('widget-inner', styles.inner)}>
           <ul className="menu">
             <li className="item" onClick={toggle}>
-              <Link href="/en" onClick={() => appContext.languageSwitcher("en")}>en</Link>
+              <a href="/en" onClick={() => appContext.languageSwitcher("en")}>en</a>
             </li>
             <li className="item" onClick={toggle}>
-              <Link href="/fr" onClick={() => appContext.languageSwitcher("fr")}>fr</Link>
+              <a href="/fr" onClick={() => appContext.languageSwitcher("fr")}>fr</a>
             </li>
           </ul>
         </div>

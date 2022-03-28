@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node server.js --hostname 185.34.102.4 --port 8080",
-    "build": "next build && next start --port 8080",
+    "build": "next build && next export",
     "start": "next build && next start NODE_ENV=production node server.js --hostname 185.34.102.4 --port 8080"
   },
   "dependencies": {
@@ -32,5 +32,10 @@
     "sass": "^1.32.2",
     "slick-carousel": "^1.8.1",
     "three": "^0.129.0"
+  },
+  "devDependencies": {
+    "i": "^0.3.7",
+    "next-export-i18n": "^1.4.3",
+    "npm": "^8.5.5"
   }
 }

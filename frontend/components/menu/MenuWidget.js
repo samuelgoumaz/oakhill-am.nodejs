@@ -30,34 +30,22 @@ function MenuWidget() {
           {/** Menu **/}
           <ul className={classnames('menu', styles.menu)}>
             <li className="item" onClick={toggle}>
-              <Link href="/">
-                Accueil
-              </Link>
+              {locale === "en" ? <Link href={`/`} as={`/en`}>Home</Link> : <Link href={`/`} as={`/fr`}>Accueil</Link>}
             </li>
             <li className="item" onClick={toggle}>
-              <Link href={`/${locale}/pages/8`}>
-                Entreprise
-              </Link>
+              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/7`}>Business</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/13`}>Entreprise</Link>}
             </li>
             <li className="item" onClick={toggle}>
-              <Link href={`/${locale}/pages/7`}>
-                Activité
-              </Link>
+              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/8`}>Activities</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/14`}>Activités</Link>}
             </li>
             <li className="item" onClick={toggle}>
-              <Link href={`/${locale}/pages/9`}>
-                Plateforme
-              </Link>
+              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/9`}>Plateform</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/14`}>Plateforme</Link>}
             </li>
             <li className="item" onClick={toggle}>
-              <Link href={`/${locale}/pages/10`}>
-                Processus d'investissement
-              </Link>
+              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/10`}>Investment process</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/15`}>Processus d'investissement</Link>}
             </li>
             <li className="item" onClick={toggle}>
-              <Link href={`/${locale}/pages/6`}>
-                Pré-IPO
-              </Link>
+              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/6`}>Pre-IPO</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/17`}>Pre-IPO</Link>}
             </li>
           </ul>
 

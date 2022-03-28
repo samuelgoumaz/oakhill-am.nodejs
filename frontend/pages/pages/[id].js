@@ -74,14 +74,13 @@ const Page = ({ page, pages, footer, mtv, partner, brandings }) => {
               <Sections key="sections" content={page.section} />
 
                 {/* Market Timing View */}
-                {page.id == 4 || page.id == 10 && <Mtv content={mtv} />}
+                {page.id == 15 || page.id == 10 ? <Mtv content={mtv} /> : ""}
 
                 {/* Partners */}
-                {page.id == 1 || page.id == 8 && <Partners key="partners" content={partner} elements={brandings} />}
+                {page.id == 14 || page.id == 8 ? <Partners key="partners" content={partner} elements={brandings} /> : ""}
 
                 {/* Footer */}
                 <Footer key="footer" content={footer} />
-
             </div>
           </section>
 
@@ -91,29 +90,32 @@ const Page = ({ page, pages, footer, mtv, partner, brandings }) => {
   );
 };
 
-
 export async function getServerSideProps(context) {
   const { id } = context.params;
   const { locale } = context;
 
   let translation = false;
-  const myPage = await fetchAPI(`/pages/${id}`);
+  let translationMtv = false;
+  let translationPartner = false;
 
-  if (locale === "fr") {
-    translation = await fetchAPI(
-      `/pages/${myPage.localizations[0].id}`
-    );
-  }
-
+  const page = await fetchAPI(`/pages/${id}`);
   const pages = await fetchAPI("/pages");
   const footer = await fetchAPI('/footer');
-  const mtv = await fetchAPI('/mtv');
-  const partner = await fetchAPI('/partner');
+  const mtv = await fetchAPI(`/mtv?_locale=${locale}`);
+  const partner = await fetchAPI(`/partner?_locale=${locale}`);
   const brandings = await fetchAPI('/brandings');
+
+  if (locale != page.locale) {
+    const translationRes = await fetchAPI(
+      `/pages/${page.localizations[0].id}`
+    );
+    translation = await translationRes;
+  }
+
 
   return {
     props: {
-      page: translation ? translation : myPage,
+      page: translation ? translation : page,
       pages: pages,
       footer: footer,
       mtv: mtv,
