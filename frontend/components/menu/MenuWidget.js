@@ -39,7 +39,7 @@ function MenuWidget() {
               {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/8`}>Activities</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/14`}>Activités</Link>}
             </li>
             <li className="item" onClick={toggle}>
-              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/9`}>Plateform</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/14`}>Plateforme</Link>}
+              {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/9`}>Platform</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/14`}>Plateforme</Link>}
             </li>
             <li className="item" onClick={toggle}>
               {locale === "en" ? <Link href={`/pages/[id]`} as={`/en/pages/10`}>Investment process</Link> : <Link href={`/pages/[id]`} as={`/fr/pages/15`}>Processus d'investissement</Link>}

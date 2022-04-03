@@ -460,7 +460,13 @@ section.section-main {
   padding: 120px 0 0 0;
   padding-left: 20vw;
 
+  .background {
+    z-index: 1;
+  }
+
   .section-inner {
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -718,6 +724,7 @@ section.section-banner {
         writing-mode: vertical-rl;
         text-orientation: mixed;
         height: calc(50% - 100px);
+        font-size: 0.75em;
       }
     }
 

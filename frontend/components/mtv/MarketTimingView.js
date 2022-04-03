@@ -9,6 +9,7 @@ import styles from './MarketTimingView.module.scss';
 import classnames from "classnames";
 import schema from '../../public/assets/oakhill-slide-3.png'
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+import {isMobile} from 'react-device-detect';
 
 //import Headroom from "headroom.js";
 
@@ -80,6 +81,7 @@ const MarketTimingViewDefault = props => {
           <div className="header">
             {props.content.title && <h1 className="title">{props.content.title}</h1>}
             {props.content.description && <div className={classnames("body", styles.description)} dangerouslySetInnerHTML={{__html:props.content.description}} />}
+            {<a href="/oakhill-mtv.pdf" target="_blank" className="button-download">Market Timing View</a>}
           </div>
 
           {/* menu
@@ -266,7 +268,7 @@ const MarketTimingViewDefault = props => {
                   <Slide top>
                     <div className={classnames("col s4 m4 l4 category")}>
                       <span className="icon material-icons">content_copy</span>
-                      Top pics
+                      Top picks
                     </div>
 
                     <div className={classnames("col s4 m4 l4 category")}>

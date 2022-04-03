@@ -1,3 +1,16 @@
+.button-download {
+  display: none;
+  line-height: 40px;
+  background: $gold;
+  border-radius: 20px;
+  padding: 0 10px;
+  font-size: 0.875em;
+  text-transform: uppercase;
+  color: white;
+  font-family: $font-main-regular;
+  letter-spacing: 0.01em;
+  margin: 20px 0 0 0;
+}
 
 /* Market Timing View
 --------------------- */
@@ -43,6 +56,8 @@ section.section-mtv {
     }
 
     .slide {
+      max-width: 1360px;
+      margin: 0 auto;
       width: 100%;
       height: auto;
       min-height: 800px;
@@ -646,9 +661,13 @@ section.section-mtv {
 
             .title {
               position: absolute;
-              width: auto;
-              bottom: 20px;
-              right: 20px;
+              width: 180px;
+              height: 50px;
+              display: inline-flex;
+              border-top: 2px solid $gold;
+              text-align: center;
+              bottom: 10px;
+              right: 10px;
               background: #e2e2e2;
               border-bottom: 2px solid $gold;
               letter-spacing: 0.1;
@@ -697,7 +716,7 @@ section.section-mtv {
                 }
 
                 .title {
-                  top: 20px;
+                  top: 10px;
                   bottom: auto;
                 }
               }
@@ -727,7 +746,7 @@ section.section-mtv {
 
                 .title {
                   right: auto;
-                  left: 20px;
+                  left: 10px;
                 }
               }
               &.bottom {
@@ -748,9 +767,9 @@ section.section-mtv {
                 }
 
                 .title {
-                  top: 20px;
+                  top: 10px;
                   right: auto;
-                  left: 20px;
+                  left: 10px;
                   bottom: auto;
                 }
               }
@@ -877,4 +896,28 @@ section.section-mtv {
       }
     }
   }
+}
+
+// responsive
+@media #{$small-and-down} {
+  section.section-mtv {
+    .button-download {
+      display: inline-block !important;
+    }
+    .col-slider {
+      display: none !important;
+    }
+  }
+}
+@media #{$medium-and-up} {
+  // styles for medium screens and larger
+}
+@media #{$medium-and-down} {
+  // styles for medium screens and down
+}
+@media #{$large-and-up} {
+  // styles for large screens and up
+}
+@media #{$extra-large-and-up} {
+  // styles for extra large screens and up
 }
