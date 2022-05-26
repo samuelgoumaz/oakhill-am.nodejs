@@ -5,11 +5,11 @@ module.exports = withImages({
     return config
   },
   i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "en",
-    localeDetection: false,
+    locales: ["fr", "en"],
+    defaultLocale: "fr",
+    localeDetection: true,
   },
-  trailingSlash: false,
+  trailingSlash: true,
   images: {
     loader: 'imgix',
     path: '/'
